@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import StackIcon from '../components/StackIcon';
 
 const About = () => {
@@ -10,6 +10,8 @@ const About = () => {
     'vitejs', 'threejs', 'supabase', 'xampp',
     'git', 'github', 'rust', 'solidity'
   ];
+
+  const [showResume, setShowResume] = useState(false);
 
   return (
     <section className="relative bg-blue-50 py-12 sm:py-16 lg:py-20" id="about">
@@ -27,6 +29,12 @@ const About = () => {
                   My experience has strengthened my ability to manage time well, stay focused, and deliver solutions efficiently.
                   Dedicated to continuous learning and growth.
                 </p>
+                <button
+                  onClick={() => setShowResume(true)}
+                  className="mt-4 px-6 py-2 bg-[#0066FF] text-white rounded-lg hover:bg-blue-700 transition-colors text-base shadow"
+                >
+                  View Resume
+                </button>
               </div>
             </div>
 
@@ -74,6 +82,36 @@ const About = () => {
           </div>
         </div>
       </div>
+
+      {showResume && (
+        <div className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50 p-2 sm:p-4 overflow-auto" onClick={() => setShowResume(false)}>
+          <div className="relative max-w-3xl w-full mx-1 sm:mx-4 bg-white rounded-lg p-2 sm:p-4" style={{maxHeight: '95vh', overflowY: 'auto'}} onClick={e => e.stopPropagation()}>
+            <button
+              className="absolute -top-8 sm:-top-10 right-0 text-[#0066FF] text-xl sm:text-2xl hover:text-blue-400"
+              onClick={() => setShowResume(false)}
+            >
+              ×
+            </button>
+            <div className="flex justify-center sm:justify-end mb-2">
+              <a
+                href="/assets/resume/jairCV.pdf"
+                download
+                className="w-full sm:w-auto px-5 py-2 bg-[#0066FF] text-white rounded-lg hover:bg-blue-700 transition-colors text-base shadow text-center"
+                style={{ maxWidth: '220px' }}
+              >
+                Download Resume
+              </a>
+            </div>
+            <iframe
+              src="/assets/resume/jairCV.pdf"
+              className="w-full h-[60vh] sm:h-[70vh] md:h-[80vh] rounded-lg bg-white"
+              title="Resume PDF"
+              style={{ minHeight: '300px', maxHeight: '75vh' }}
+              allowFullScreen
+            />
+          </div>
+        </div>
+      )}
 
       <style jsx>{`
         .hide-scrollbar {

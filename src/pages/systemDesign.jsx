@@ -120,14 +120,8 @@ const SystemDesign = () => {
             {/* PDF Viewer Button */}
             <div className="flex flex-col items-start mb-6 sm:mb-8">
               <p className="text-[#607B8B] text-sm sm:text-base lg:text-lg mb-3 sm:mb-4">Click here to view the full System Design Project</p>
-              <button 
-                onClick={() => {
-                  if (window.matchMedia && window.matchMedia('(max-width: 768px)').matches) {
-                    window.open('/assets/systemDesign/systemDesign.pdf', '_blank');
-                  } else {
-                    setShowPdf(true);
-                  }
-                }}
+              <button
+                onClick={() => setShowPdf(true)}
                 className="w-full sm:w-auto px-6 py-3 text-base sm:text-lg bg-[#0066FF] text-white rounded-lg hover:bg-blue-700 transition-colors mt-6"
               >
                 View Project File
@@ -177,15 +171,14 @@ const SystemDesign = () => {
           </div>
         </div>
       )}
-      {/* Modal for PDF viewer */}
       {showPdf && (
         <div 
-          className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50 p-2 sm:p-4"
+          className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50 p-2 sm:p-4 overflow-auto"
           onClick={closeModal}
         >
-          <div className="relative max-w-4xl w-full mx-2 sm:mx-4 bg-white rounded-lg p-2 sm:p-4 overflow-auto" style={{maxHeight: '90vh'}}>
+          <div className="relative max-w-4xl w-full mx-2 sm:mx-4 bg-white rounded-lg p-2 sm:p-4 overflow-auto" style={{maxHeight: '90vh'}} onClick={e => e.stopPropagation()}>
             <button 
-              className="absolute -top-8 sm:-top-10 right-0 text-white text-xl sm:text-2xl hover:text-gray-300"
+              className="absolute -top-8 sm:-top-10 right-0 text-[#0066FF] text-xl sm:text-2xl hover:text-blue-400"
               onClick={closeModal}
             >
               ×
@@ -193,16 +186,10 @@ const SystemDesign = () => {
             <iframe 
               src="/assets/systemDesign/systemDesign.pdf" 
               className="w-full h-[60vh] sm:h-[70vh] md:h-[80vh] rounded-lg bg-white" 
-              style={{minHeight: '400px', maxHeight: '75vh'}}
+              style={{minHeight: '300px', maxHeight: '75vh'}}
               title="System Design PDF"
               allowFullScreen
-              sandbox="allow-same-origin allow-scripts allow-popups"
-              onError={(e) => { e.target.style.display = 'none'; document.getElementById('pdf-fallback').style.display = 'block'; }}
             />
-            <div id="pdf-fallback" style={{display: 'none'}} className="w-full h-[60vh] flex items-center justify-center text-center text-[#607B8B] text-base">
-              Unable to load PDF. <br />
-              <a href="/assets/systemDesign/systemDesign.pdf" target="_blank" rel="noopener noreferrer" className="underline text-[#0066FF]">Open PDF in a new tab</a>
-            </div>
           </div>
         </div>
       )}
