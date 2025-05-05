@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 const navLinks = [
   { id: 'home', name: 'Home', href: '#home' },
@@ -17,7 +17,6 @@ const scrollToSection = (hash) => {
 
 const NavItems = ({ onClick = () => {}, onContactClick }) => {
   const location = useLocation();
-  const navigate = useNavigate();
 
   const handleNav = (e, href) => {
     e.preventDefault();
@@ -40,8 +39,7 @@ const NavItems = ({ onClick = () => {}, onContactClick }) => {
       return;
     }
     if (location.pathname !== '/') {
-      navigate('/');
-      setTimeout(() => scrollToSection(href), 100);
+      scrollToSection(href);
     } else {
       scrollToSection(href);
     }
@@ -75,7 +73,11 @@ const Navbar = ({ onContactClick }) => {
     <header className="fixed top-0 left-0 right-0 z-50 bg-white">
       <div className="max-w-[1400px] mx-auto">
         <div className="flex justify-between items-center py-6 px-8">
-          <Link to="/" className="text-[#1a1a1a] font-semibold text-2xl">
+          <Link
+            to="/"
+            className="text-[#1a1a1a] font-semibold text-2xl cursor-pointer select-none"
+            onClick={() => setIsOpen(false)}
+          >
             Jair
           </Link>
 
