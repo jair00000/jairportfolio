@@ -74,11 +74,11 @@ export const myProjects = [
     ],
   },
   {
-    title: 'LiveDoc - Real-Time Google Docs Clone',
-    desc: 'LiveDoc is a powerful collaborative app that elevates the capabilities of real-time document editing. As an enhanced version of Google Docs, It supports millions of collaborators simultaneously, ensuring that every change is captured instantly and accurately.',
+    title: 'System Design Project',
+    desc: 'This system design project aims to modernize and streamline business operations through a fully integrated digital solution. It offers a platform for solving current problems, optimizing the effectiveness of operations, and facilitating well-informed decision-making processes.',
     subdesc:
-      'With LiveDoc, users can experience the future of collaboration, where multiple contributors work together in real time without any lag, by using Next.js and Liveblocks newest features.',
-    href: 'https://www.youtube.com/watch?v=y5vE8y_f_OM',
+      'With structured processes, clear data flow, and a user-centered interface, the proposed system empowers the organization to operate more effectively and scale its services with ease.',
+    href: '#',
     texture: '/textures/project/project2.mp4',
     logo: '/assets/project-logo2.png',
     logoStyle: {
@@ -87,6 +87,11 @@ export const myProjects = [
       boxShadow: '0px 0px 60px 0px #2F6DB54D',
     },
     spotlight: '/assets/spotlight2.png',
+    images: [
+      '/assets/projects/systemDesign1.png',
+      '/assets/projects/systemDesign2.png',
+      '/assets/projects/systemDesign3.png'
+    ],
     tags: [
       {
         id: 1,
@@ -111,11 +116,11 @@ export const myProjects = [
     ],
   },
   {
-    title: 'CarePulse - Health Management System',
-    desc: 'An innovative healthcare platform designed to streamline essential medical processes. It simplifies patient registration, appointment scheduling, and medical record management, providing a seamless experience for both healthcare providers and patients.',
+    title: 'LiveDoc - Real-Time Google Docs Clone',
+    desc: 'LiveDoc is a powerful collaborative app that elevates the capabilities of real-time document editing. As an enhanced version of Google Docs, It supports millions of collaborators simultaneously, ensuring that every change is captured instantly and accurately.',
     subdesc:
-      'With a focus on efficiency, CarePulse integrantes complex forms and SMS notifications, by using Next.js, Appwrite, Twillio and Sentry that enhance operational workflows.',
-    href: 'https://www.youtube.com/watch?v=lEflo_sc82g',
+      'With LiveDoc, users can experience the future of collaboration, where multiple contributors work together in real time without any lag, by using Next.js and Liveblocks newest features.',
+    href: 'https://www.youtube.com/watch?v=y5vE8y_f_OM',
     texture: '/textures/project/project3.mp4',
     logo: '/assets/project-logo3.png',
     logoStyle: {
